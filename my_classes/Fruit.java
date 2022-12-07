@@ -9,6 +9,7 @@ public class Fruit extends Ressource {
         this.energy = 10;
     }
 
+    //#region accesseurs
     public String getNom() {
         return this.nom;
     }
@@ -20,4 +21,5 @@ public class Fruit extends Ressource {
     public boolean getIsToxique() {
         return this.isToxique;
     }
+    //#endregion
 }

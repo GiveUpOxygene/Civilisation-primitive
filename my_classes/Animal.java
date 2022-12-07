@@ -8,4 +8,8 @@ public interface Animal {
 
     public int getValeur() ;
 
+    public boolean isPredator();
+
+    public void kill();
+
 }

@@ -3,6 +3,8 @@ public class CroMagnon {
     private int energy;
     private boolean isAlive;
     private boolean sexe;
+    private int x;
+    private int y;
 
     public CroMagnon(String nom) {
         this.nom = nom;
@@ -10,6 +12,7 @@ public class CroMagnon {
         this.sexe = (int)(Math.random() * 2) == 0;
     }
 
+    //#region accesseurs
     public String getNom() {
         return this.nom;
     }
@@ -26,6 +29,14 @@ public class CroMagnon {
         return this.sexe;
     }
 
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+    //#endregion
 
 
     public String toString() {
@@ -41,19 +52,27 @@ public class CroMagnon {
 
     //Chasse et cueillette
 
+    /**
+     * Chasse un animal
+     * @param cible l'animal à chasser
+     * @see Animal
+     * @see Mammouth
+     */
+
     public void chasser(Animal cible) {
-        if (this.energy >= cible.getPuissance()) {
-            this.energy += cible.getValeur();
-        }else if (cible instanceof Predateur){
+        if (cible.isPredator() && cible.getPuissance() > this.energy){
             this.isAlive = false;
-        }else if (cible instanceof Proie){
-            this.energy -= cible.getPuissance();
-            if (this.energy <= 0){
-                this.isAlive = false;
-            }
+        }else if ((cible.isPredator() && cible.getPuissance() <= this.energy) || !cible.isPredator()){
+            this.energy += cible.getPuissance();
+            cible.kill();
         }
     }
 
+    /**
+     * Cueille un fruit
+     * @param cible
+     * @see Fruit
+     */
     public void cueillir(Fruit cible) {
         if (cible.getIsToxique()){
             this.energy -= cible.getEnergy();
@@ -65,4 +84,3 @@ public class CroMagnon {
         }
     }
 }
-
