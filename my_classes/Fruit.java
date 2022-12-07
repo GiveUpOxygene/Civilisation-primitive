@@ -1,4 +1,4 @@
-public class Fruit extends Ressource {
+public abstract class Fruit extends Ressource {
     private String nom;
     private int energy;
     private boolean isToxique;

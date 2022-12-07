@@ -1,8 +1,7 @@
-public class Mammouth extends Animal {
+public class Loup extends Animal{
 
-
-    public Mammouth() {
-        super("Mammouth");
+    public Loup() {
+        super("Loup");
     }
 
     //#region accesseurs
@@ -29,14 +28,14 @@ public class Mammouth extends Animal {
 
 
     /**
-     * Reproduction entre deux mammouths
-     * @param other : le mammouth avec lequel on veut faire se reproduire <b>this</b>
-     * @return un nouveau mammouth si les deux mammouths sont de sexe opposé, null sinon
+     * Reproduction entre deux loups
+     * @param other : le loups avec lequel on veut faire se reproduire <b>this</b>
+     * @return un nouveau loup si les deux loups sont de sexe opposé, null sinon
      */
 
-    public Mammouth reproduction(Mammouth other) {
+    public Loup reproduction(Loup other) {
         if (!(this.getSexe() == other.getSexe())) {
-            return new Mammouth();
+            return new Loup();
         }
         return null;
     }
