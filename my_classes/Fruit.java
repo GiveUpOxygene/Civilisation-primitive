@@ -21,5 +21,9 @@ public class Fruit extends Ressource {
     public boolean getIsToxique() {
         return this.isToxique;
     }
+
+    public void setIsToxique(boolean isToxique) {
+        this.isToxique = isToxique;
+    }
     //#endregion
 }
